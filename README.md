@@ -21,6 +21,10 @@
   >模拟学生退课操作，再打印课程信息。  
 
 ## 实验过程：
+Person类下定义三个基本属性（ID、Name、Sex），利用构造方法实例化对象为属性赋值；
+Student类继承Person类，获得父类属性，同时定义特有属性Course（所选课程），其数据类型为Course型。然后通过构造方法，在其首行利用super()方法实例化子类，为父类属性赋值；
+定义Setcourse(Course ce)方法，对Course（所选课程）属性进行赋值，实现学生选课操作。重写toString()方法，将相关属性以既定方式输出显示；
+Course类下定义六个基本属性（ID、Name、Location、Time、Teacher【授课教师】、Student【选课学生】），利用构造方法实例化对象为属性赋值；
 ## 流程图：
 ## 核心代码：
 ## 注释：
