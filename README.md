@@ -21,13 +21,13 @@
   >模拟学生退课操作，再打印课程信息。  
 
 ## 实验过程：
->Person类下定义三个基本属性（ID、Name、Sex），利用构造方法实例化对象为属性赋值；    
+>* Person类下定义三个基本属性（ID、Name、Sex），利用构造方法实例化对象为属性赋值；    
 >Student类继承Person类，获得父类属性，同时定义一个Course对象Course（所选课程），其数据类型为Course型。然后通过构造方法，在其首行利用super()方法实例化子类，为父类属性赋值；    
->>定义Setcourse(Course ce)方法，对Course（所选课程）属性进行赋值，实现学生选课操作。重写toString()方法，将相关属性以既定方式输出显示；    
+>定义Setcourse(Course ce)方法，对Course（所选课程）属性进行赋值，实现学生选课操作。重写toString()方法，将相关属性以既定方式输出显示；    
 >Techer类继承Person类，获得父类属性，同时定义一个Course对象Course（所授课程），其数据类型为Course型。然后通过构造方法，在其首行利用super()方法实例化子类，为父类属性赋值；    
->>定义Setcourse(Course ce)方法，对Course（所授课程）属性进行赋值，实现老师授课操作。重写toString()方法，将相关属性以既定方式输出显示；    
+>定义Setcourse(Course ce)方法，对Course（所授课程）属性进行赋值，实现老师授课操作。重写toString()方法，将相关属性以既定方式输出显示；    
 >Course类下定义六个基本属性（ID、Name、Location、Time、Teacher【授课教师】、Student【选课学生】），利用构造方法实例化对象为属性赋值；   
->>>在Test主类中，定义类下的特有属性static char opt以及方法curriculumTest(char o)为opt赋值；  
+>>在Test主类中，定义类下的特有属性static char opt以及方法curriculumTest(char o)为opt赋值；  
 >>>main方法中创建一个Teacher对象T1，调用构造方法对其父类属性（ID、Name、Sex）赋值；  
 >>>main方法中创建一个Student对象S1，调用构造方法对其父类属性（ID、Name、Sex）赋值；  
 >>>main方法中创建一个Course对象C1，调用构造方法为其自身属性（ID、Name、Location、Time、Teacher【授课教师】、Student【选课学生】）赋值；  
@@ -92,7 +92,7 @@ public class Course {//添加课程的基本属性
 }
 ```
 ### Test类
-```javascrpit
+```javascript
 public class Test {
  static char opt;//创建Test类下的特有属性
  public char curriculumTest (char o){
