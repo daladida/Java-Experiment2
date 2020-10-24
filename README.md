@@ -23,11 +23,11 @@
 ## 实验过程：
 >Person类下定义三个基本属性（ID、Name、Sex），利用构造方法实例化对象为属性赋值；    
 >Student类继承Person类，获得父类属性，同时定义一个Course对象Course（所选课程），其数据类型为Course型。然后通过构造方法，在其首行利用super()方法实例化子类，为父类属性赋值；    
->定义Setcourse(Course ce)方法，对Course（所选课程）属性进行赋值，实现学生选课操作。重写toString()方法，将相关属性以既定方式输出显示；    
+>>定义Setcourse(Course ce)方法，对Course（所选课程）属性进行赋值，实现学生选课操作。重写toString()方法，将相关属性以既定方式输出显示；    
 >Techer类继承Person类，获得父类属性，同时定义一个Course对象Course（所授课程），其数据类型为Course型。然后通过构造方法，在其首行利用super()方法实例化子类，为父类属性赋值；    
->定义Setcourse(Course ce)方法，对Course（所授课程）属性进行赋值，实现老师授课操作。重写toString()方法，将相关属性以既定方式输出显示；    
+>>定义Setcourse(Course ce)方法，对Course（所授课程）属性进行赋值，实现老师授课操作。重写toString()方法，将相关属性以既定方式输出显示；    
 >Course类下定义六个基本属性（ID、Name、Location、Time、Teacher【授课教师】、Student【选课学生】），利用构造方法实例化对象为属性赋值；   
->>在Test主类中，定义类下的特有属性static char opt以及方法curriculumTest(char o)为opt赋值；  
+>>>在Test主类中，定义类下的特有属性static char opt以及方法curriculumTest(char o)为opt赋值；  
 >>>main方法中创建一个Teacher对象T1，调用构造方法对其父类属性（ID、Name、Sex）赋值；  
 >>>main方法中创建一个Student对象S1，调用构造方法对其父类属性（ID、Name、Sex）赋值；  
 >>>main方法中创建一个Course对象C1，调用构造方法为其自身属性（ID、Name、Location、Time、Teacher【授课教师】、Student【选课学生】）赋值；  
@@ -39,7 +39,84 @@
 ## 流程图：
 ![image](https://github.com/daladida/Java-Experiment2/blob/main/images/%E6%AD%A6%E6%99%93%E5%A8%87.jpg)
 ## 核心代码：
-## 注释：
+### Student类
+```javascript
+public class Student extends Person {//Student类继承Person类，获得父类属性
+ public Course Course;//添加Student类的特有属性(所选课程)
+ Student (String i,String n,String s){
+  super(i,n,s);//super()实例化子类，为父类属性赋值
+ }
+ public void Selectcourse (Course ce) {
+	 this.Course = ce;
+ }
+ public String toString() {//重写toString()方法，将相关属性以既定方式输出显示
+  return "编号:"+this.ID+" 姓名:"+this.Name+" 性别:"+this.Sex+" 所选课程:"+this.Course.Name;
+ }
+}
+```
+### Teacher类
+```javascript
+public class Teacher extends Person{//Teacher类继承Person类，获得父类属性
+ public Course Course;//添加Teacher类的特有属性(所授课程)
+ Teacher (String i,String n,String s){
+  super(i,n,s);//super()实例化子类，为父类属性赋值
+ }
+ public void Selectcourse (Course ce) {
+	 this.Course = ce;
+ }
+ public String toString() {//重写toString()方法，将相关属性以既定方式输出显示
+  return "编号:"+this.ID+" 姓名:"+this.Name+" 性别:"+this.Sex+" 所授课程:"+this.Course.Name;
+ }
+}
+```
+### Course类
+```javascript
+public class Course {//添加课程的基本属性
+ String ID;
+ String Name;
+ String Location;
+ String Time;
+ Teacher Teacher;
+ Student Student;
+ Course (String i,String n,String l,String te,Teacher tr,Student st){//通过构造方法实例化对象为属性赋值
+  this.ID = i;
+  this.Name = n;
+  this.Location = l;
+  this.Time = te;
+  this.Teacher = tr;
+  this.Student = st;
+ }
+ public String toString() {//重写toString()方法，将相关属性以既定方式输出显示
+  return "编号:"+this.ID+" 课程名称:"+this.Name+" 上课地点:"+this.Location+" 时间:"+this.Time+" 授课教师:"+this.Teacher.Name+" 选课学生:"+this.Student.Name;
+ }
+}
+```
+### Test类
+```javascrpit
+public class Test {
+ static char opt;//创建Test类下的特有属性
+ public char curriculumTest (char o){
+	 return this.opt = o;}//方法为属性赋值
+ public static void main(String args[]) {
+  Teacher T1 = new Teacher("2019311012","张世博","男孩");
+  Student S1 = new Student("2019311087","武晓娇","女孩");
+  Course C1 = new Course("CST202-1","Java技术及应用","教300","1-16周",T1,S1);//调用相关类下的构造方法，为各类属性赋值信息
+  T1.Selectcourse(C1);//老师授课
+  S1.Selectcourse(C1);//学生选课
+  System.out.println("学生信息 "+S1);//调用相关类下重写的toString()方法,输出各类属性赋值信息
+  System.out.println("课程信息 "+C1);
+  System.out.println("教师信息 "+T1);
+  Test t= new Test();//创建Test类型的对象t
+  t.curriculumTest('F');//调用方法为Test类型对象t中的属性赋值
+  if(opt == 'T')//学生通过输入T/F实现选课退课
+   System.out.println("恭喜你，选课成功!");
+  if(opt == 'F')
+   System.out.println("恭喜你，退课成功!");
+   else
+	   System.out.println("无效字符，请重新输入！");
+ }
+}
+```
 ## 系统运行截图：
 ![image](https://github.com/daladida/Java-Experiment2/blob/main/images/%E5%AE%9E%E9%AA%8C%EF%BC%88%E4%BA%8C%EF%BC%89%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png)
 ## 编程感想：
